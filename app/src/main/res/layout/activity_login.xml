@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:layout_marginBottom="30dp"
+            android:text="Masuk"
+            android:gravity="left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <RelativeLayout
+            android:background="@drawable/edt_text"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/iv_email"
+                android:src="@drawable/ic_email"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/white"
+                android:layout_toRightOf="@id/iv_email"
+                android:layout_centerInParent="true"
+                android:hint="Email atau nama pengguna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edt_text"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/iv_password"
+                android:src="@drawable/ic_password"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/white"
+                android:layout_toRightOf="@id/iv_password"
+                android:inputType="textPassword"
+                android:layout_centerInParent="true"
+                android:hint="Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_alignParentRight="true"
+            android:id="@+id/tv_lupa_kata_sandi"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            android:textColor="@android:color/black"
+            android:gravity="right"
+            android:textStyle="bold"
+            android:text="Lupa Kata Sandi?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <Button
+            android:id="@+id/btn_login"
+            android:textSize="18dp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:text="Masuk"
+            android:background="@drawable/btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <RelativeLayout
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_akun"
+            android:textSize="14dp"
+            android:text="Tidak Punya Akun?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+         <TextView
+             android:id="@+id/tv_buat_akun"
+             android:layout_toRightOf="@+id/tv_akun"
+             android:layout_marginLeft="10dp"
+             android:textColor="@android:color/black"
+             android:textStyle="bold"
+             android:text="Buat Akun"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
