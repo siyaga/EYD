@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LupaKataSandi"></activity>
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Materi" />
+        <activity android:name=".LupaKataSandi" />
         <activity android:name=".Register" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Login">

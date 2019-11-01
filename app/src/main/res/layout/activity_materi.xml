@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    tools:context=".LupaKataSandi">
+    tools:context=".Materi">
+
+
         <com.google.android.material.appbar.AppBarLayout
+
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,63 +26,67 @@
                         android:id="@+id/iv_kembali"
                         android:layout_width="40dp"
                         android:layout_height="40dp"/>
-
+                    <TextView
+                        android:id="@+id/tv_materi"
+                        android:textColor="#525F7F"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:text="Materi "
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
-        <LinearLayout
-            android:layout_below="@+id/toolbar"
-            android:padding="20dp"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <TextView
-            android:layout_marginTop="30dp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:textSize="30dp"
-            android:layout_marginBottom="30dp"
-            android:text="Lupa Kata Sandi"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:textSize="14dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="Silahkan masukan email anda. Anda akan \n menerima link via email tersebut untuk mengatur \nulang kata sandi anda."
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <RelativeLayout
-            android:background="@drawable/edt_text"
-            android:padding="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
-                android:background="@android:color/white"
-                android:layout_centerInParent="true"
-                android:hint="Email atau nama pengguna"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
 
-        </RelativeLayout>
+    <ScrollView
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <VideoView
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+        <TextView
+            android:textSize="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Lorem Ipsum is simply dummy text of\n
+the printing and typesetting industry. \n
+Lorem Ipsum has been the industry's \n
+standard dummy text ever since the \n
+1500s, when an unknown printer took a \n
+galley of type and scrambled it to make a \n
+type specimen book. It has survived not \n
+only five centuries, but also the leap into\n
+electronic typesetting, remaining \n
+essentially unchanged"
+            />
         <Button
             android:id="@+id/btn_lupa_kata_sandi"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:textSize="18dp"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:gravity="center"
-            android:text="Kirim"
+            android:text="Coba Latihan Soal"
             android:background="@drawable/side_nav_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        </LinearLayout>
 
-    </LinearLayout>
+
+    </ScrollView>
 </RelativeLayout>
