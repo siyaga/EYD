@@ -12,9 +12,4 @@
         android:text="Materi 1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <ImageView
-        android:src="#707070"
-        android:background="#707070"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"/>
 </LinearLayout>

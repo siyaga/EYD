@@ -9,10 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".KeluarSoal" />
+        <activity android:name=".EditProfil" />
+        <activity android:name=".HasilLatihanSoal" />
+        <activity android:name=".Soal" />
+        <activity android:name=".KomfirmasiSoal" />
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Materi" />
         <activity android:name=".LupaKataSandi" />
         <activity android:name=".Register" />

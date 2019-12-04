@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KomfirmasiSoal">
+    <com.google.android.material.appbar.AppBarLayout
+
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/ic_back"
+                    android:id="@+id/iv_kembali"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+                <TextView
+                    android:id="@+id/tv_materi"
+                    android:textColor="@color/textUnguMuda"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="Latihan Soal A "
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Pilih Berapa Soal Yang Ingin Anda\n Kerjakan."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            android:id="@+id/btn_10"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn"
+            android:textColor="@android:color/white"
+            android:text="10"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            />
+        <Button
+            android:id="@+id/btn_25"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn"
+            android:textColor="@android:color/white"
+            android:text="25"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            />
+        <Button
+            android:id="@+id/btn_50"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn"
+            android:textColor="@android:color/white"
+            android:text="50"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

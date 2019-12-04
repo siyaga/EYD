@@ -24,12 +24,14 @@
         />
     </RelativeLayout>
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_gambar"
         android:layout_gravity="center"
         android:src="@drawable/p82"
         android:layout_width="80dp"
         android:layout_height="80dp"/>
 
     <TextView
+        android:id="@+id/tv_nama_lengkap"
         android:layout_marginTop="5dp"
         android:textColor="#707070"
         android:textStyle="bold"
