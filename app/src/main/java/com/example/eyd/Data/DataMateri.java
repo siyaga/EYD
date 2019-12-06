@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class DataMateri {
         private static String[] Materi={
-                "Materi 1",
-                "Materi 2",
+                "Materi ejaan Van Ophuysen",
+                "Materi peleburan kata dasar",
                 "Materi 3",
                 "Materi 4",
                 "Materi 5",

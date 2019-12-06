@@ -56,14 +56,21 @@
                 android:text="Performance Stats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <LinearLayout
+                android:gravity="center"
                 android:layout_marginTop="30dp"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent">
             <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="90dp">
+                android:background="@drawable/ic_benar"
+                android:backgroundTint="#4023B907"
+                android:layout_width="80dp"
+                android:layout_height="80dp">
                 <RelativeLayout
 
                     android:padding="10dp"
@@ -72,6 +79,7 @@
                 <TextView
                     android:id="@+id/tv_score_benar"
                     android:textSize="25dp"
+                    android:textColor="@color/textHijau"
                     android:text="30"
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
@@ -81,6 +89,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/tv_score_benar"
                     android:text="Benar"
+                    android:textColor="@color/textHijau"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 </RelativeLayout>
@@ -88,10 +97,10 @@
 
             </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-
+                    android:backgroundTint="#40AB0505"
                     android:layout_marginLeft="35dp"
-                    android:layout_width="100dp"
-                    android:layout_height="90dp">
+                    android:layout_width="80dp"
+                    android:layout_height="80dp">
                     <RelativeLayout
 
                         android:padding="10dp"
@@ -101,6 +110,7 @@
                             android:id="@+id/tv_score_salah"
                             android:textSize="25dp"
                             android:text="15"
+                            android:textColor="@color/textMerah"
                             android:layout_centerHorizontal="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
@@ -109,16 +119,17 @@
                             android:layout_centerHorizontal="true"
                             android:layout_below="@id/tv_score_salah"
                             android:text="Salah"
+                            android:textColor="@color/textMerah"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                     </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-
+                    android:backgroundTint="#409013FE"
                     android:layout_marginLeft="35dp"
-                    android:layout_width="100dp"
-                    android:layout_height="90dp">
+                    android:layout_width="80dp"
+                    android:layout_height="80dp">
                     <RelativeLayout
 
                         android:padding="10dp"
@@ -128,20 +139,23 @@
                             android:id="@+id/tv_score_tidak_Dijawab"
                             android:textSize="25dp"
                             android:text="5"
+                            android:textColor="@color/textUngu"
                             android:layout_centerHorizontal="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                         <TextView
-                            android:textSize="12dp"
+                            android:textSize="9dp"
                             android:layout_centerHorizontal="true"
                             android:layout_below="@id/tv_score_tidak_Dijawab"
                             android:text="Tidak Dijawab"
+                            android:textColor="@color/textUngu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                     </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
+            </HorizontalScrollView>
             <TextView
                 android:layout_marginTop="20dp"
                 android:textColor="@color/textUnguMuda"
@@ -153,11 +167,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp">
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="10dp"
+                android:id="@+id/rv_soal"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
             </ScrollView>
             <Button
+                android:id="@+id/btn_kembali_materi"
                 android:textColor="@android:color/white"
                 android:text="Kembali Ke Materi"
                 android:background="@drawable/btn_side_nav_bar"

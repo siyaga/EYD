@@ -31,7 +31,7 @@
                         android:textColor="#525F7F"
                         android:textStyle="bold"
                         android:textSize="20dp"
-                        android:text="Materi "
+                        android:text="Materi Ejaan Van Ophuysen "
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_width="match_parent"
@@ -51,7 +51,30 @@
             android:padding="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+        <TextView
+            android:textSize="13dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:gravity="left"
+            android:layout_height="wrap_content"
+            android:text="Pada tahun 1901 ejaan bahasa Melayu dengan huruf Latin, yang disebut Ejaan van Ophuijsen, ditetapkan. Ejaan tersebut dirancang oleh van Ophuijsen dibantu oleh Engku Nawawi Gelar Soetan Ma’moer dan Moehammad Taib Soetan Ibrahim. Hal-hal yang menonjol dalam ejaan ini adalah sebagai berikut:\n
+    \n 1. Huruf j untuk menuliskan kata-kata jang, pajah, sajang.
+    \n 2. Huruf oe untuk menuliskan kata-kata goeroe, itoe, oemoer.
+    \n 3. Tanda diakritik, seperti koma ain dan tanda trema, untuk menuliskan kata-kata ma’moer, ‘akal, ta’, pa’, dinamai’."
+            />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textSize="19dp"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Lihat Video Ini"
+            />
         <VideoView
+            android:id="@+id/VV_materi"
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
@@ -62,16 +85,7 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:layout_height="wrap_content"
-            android:text="Lorem Ipsum is simply dummy text of\n
-the printing and typesetting industry. \n
-Lorem Ipsum has been the industry's \n
-standard dummy text ever since the \n
-1500s, when an unknown printer took a \n
-galley of type and scrambled it to make a \n
-type specimen book. It has survived not \n
-only five centuries, but also the leap into\n
-electronic typesetting, remaining \n
-essentially unchanged"
+            android:text="Kesalahannya ejaan di waktu 3:40-3:50 \n Menteri Luar Negeri RI menggunakan kata  koordinir namun penggunaan kata yang benar sesuai kaidah EYD adalah koordinasi"
             />
         <Button
             android:id="@+id/btn_soal"
