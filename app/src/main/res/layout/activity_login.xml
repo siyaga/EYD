@@ -33,6 +33,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"/>
             <EditText
+                android:id="@+id/et_username"
                 android:layout_marginLeft="10dp"
                 android:background="@android:color/white"
                 android:layout_toRightOf="@id/iv_email"
@@ -55,6 +56,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"/>
             <EditText
+                android:id="@+id/et_password"
                 android:layout_marginLeft="10dp"
                 android:background="@android:color/white"
                 android:layout_toRightOf="@id/iv_password"
