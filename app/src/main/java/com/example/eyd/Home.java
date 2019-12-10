@@ -31,8 +31,9 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-public class Home extends AppCompatActivity {
+import de.hdodenhof.circleimageview.CircleImageView;
 
+public class Home extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private RecyclerView rvMateri;
     private ImageView Navbar;
@@ -60,6 +61,7 @@ public class Home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
     }
 
     @Override
@@ -95,4 +97,5 @@ public class Home extends AppCompatActivity {
 
 
     }
+
 }
