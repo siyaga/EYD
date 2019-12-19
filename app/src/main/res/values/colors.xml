@@ -8,4 +8,14 @@
     <color name="unguAnak">#9C4DCC</color>
     <color name="unguTua">#38006B</color>
 
+
+    <color name="textUnguMuda">#525F7F</color>
+    <color name="textHijau">#23D907</color>
+    <color name="textMerah">#AB0505</color>
+    <color name="textUngu">#9013FE</color>
+
+
+    <color name="SoalSalah"></color>
+    <color name="soalBenar"></color>
+
 </resources>

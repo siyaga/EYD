@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    tools:context=".Materi">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/ic_back"
+                        android:id="@+id/iv_kembali"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+                    <TextView
+                        android:id="@+id/tv_materi"
+                        android:textColor="#525F7F"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:text="Materi Ejaan Van Ophuysen "
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:textSize="13dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:gravity="left"
+            android:layout_height="wrap_content"
+            android:text="Pada tahun 1901 ejaan bahasa Melayu dengan huruf Latin, yang disebut Ejaan van Ophuijsen, ditetapkan. Ejaan tersebut dirancang oleh van Ophuijsen dibantu oleh Engku Nawawi Gelar Soetan Ma’moer dan Moehammad Taib Soetan Ibrahim. Hal-hal yang menonjol dalam ejaan ini adalah sebagai berikut:\n
+    \n 1. Huruf j untuk menuliskan kata-kata jang, pajah, sajang.
+    \n 2. Huruf oe untuk menuliskan kata-kata goeroe, itoe, oemoer.
+    \n 3. Tanda diakritik, seperti koma ain dan tanda trema, untuk menuliskan kata-kata ma’moer, ‘akal, ta’, pa’, dinamai’."
+            />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textSize="19dp"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Lihat Video Ini"
+            />
+        <VideoView
+            android:id="@+id/VV_materi"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+        <TextView
+            android:textSize="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Kesalahannya ejaan di waktu 3:40-3:50 \n Menteri Luar Negeri RI menggunakan kata  koordinir namun penggunaan kata yang benar sesuai kaidah EYD adalah koordinasi"
+            />
+        <Button
+            android:id="@+id/btn_soal"
+            android:layout_marginTop="40dp"
+            android:textSize="18dp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:text="Coba Latihan Soal"
+            android:background="@drawable/btn_side_nav_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</RelativeLayout>
