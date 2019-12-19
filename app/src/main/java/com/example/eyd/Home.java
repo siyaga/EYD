@@ -45,17 +45,20 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        /*
         rvMateri = findViewById(R.id.rv_materi);
         rvMateri.setHasFixedSize(true);
         list.addAll(DataMateri.getListData());
         showRecyclerList();
+
+         */
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery)
+                R.id.nav_home, R.id.nav_profil, R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -77,6 +80,7 @@ public class Home extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+    /*
     private void showRecyclerList(){
         rvMateri.setLayoutManager(new LinearLayoutManager(this));
         MateriAdapter materiAdapter = new MateriAdapter(list);
@@ -97,5 +101,7 @@ public class Home extends AppCompatActivity {
 
 
     }
+
+     */
 
 }
