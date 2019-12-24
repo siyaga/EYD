@@ -38,9 +38,20 @@
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
+    <TextView
+        android:id="@+id/tv_performa"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/textUnguMuda"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:text="Performance Stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <ScrollView
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/tv_performa"
         android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -48,14 +59,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:layout_marginTop="10dp"
-                android:textColor="@color/textUnguMuda"
-                android:textSize="18dp"
-                android:layout_gravity="center"
-                android:text="Performance Stats"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -67,12 +71,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent">
             <androidx.cardview.widget.CardView
-                android:background="@drawable/ic_benar"
-                android:backgroundTint="#4023B907"
+                android:backgroundTint="#4D25B10C"
                 android:layout_width="80dp"
                 android:layout_height="80dp">
                 <RelativeLayout
-
                     android:padding="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -84,14 +86,15 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <TextView
-                    android:textSize="12dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/tv_score_benar"
-                    android:text="Benar"
-                    android:textColor="@color/textHijau"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_score_benar"
+                        android:layout_centerHorizontal="true"
+                        android:text="Benar"
+                        android:textColor="@color/textHijau"
+                        android:textSize="12dp" />
                 </RelativeLayout>
 
 

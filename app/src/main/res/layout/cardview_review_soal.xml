@@ -5,7 +5,9 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:backgroundTint="#40B1ADAD"
+        android:id="@+id/cardview_hasil_soal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cardview_background"
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
