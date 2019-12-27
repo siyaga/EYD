@@ -10,7 +10,4 @@
         android:name="com.example.eyd.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-
-
-
 </navigation>

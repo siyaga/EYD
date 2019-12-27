@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
                 android:src="#40AB0505"
@@ -26,7 +26,7 @@
                 android:id="@+id/tv_soal"
                 android:textSize="18dp"
                 android:textColor="@android:color/black"
-                android:text="1. Manakah Tulisan EYD Yang Benar ?"
+                android:text="1. Question 1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
              <RadioGroup
@@ -36,12 +36,12 @@
                  android:layout_height="wrap_content">
                  <RadioButton
                      android:id="@+id/rb_jawaban_1"
-                     android:text="Resiko"
+                     android:text="Answer A"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"/>
                  <RadioButton
                      android:id="@+id/rb_jawaban_2"
-                     android:text="Risiko"
+                     android:text="Answer B"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"/>
 

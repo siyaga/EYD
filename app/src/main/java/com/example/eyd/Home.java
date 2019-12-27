@@ -4,14 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.eyd.Adapter.MateriAdapter;
-import com.example.eyd.Data.DataMateri;
-import com.example.eyd.Model.ModelMateri;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-
-import androidx.fragment.app.Fragment;
+import com.example.eyd.Data.DataManager;
+import com.example.eyd.Model.Material;
+import com.example.eyd.Data.SharedPreferenceHelper;
+import com.example.eyd.Model.response.MaterialResponse;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -26,18 +22,26 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.Menu;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class Home extends AppCompatActivity {
+    private final DataManager mDataManager = new DataManager();
+    private SharedPreferenceHelper sharedPreferenceHelper;
+    private Disposable mDisposable;
     private AppBarConfiguration mAppBarConfiguration;
     private RecyclerView rvMateri;
     private ImageView Navbar;
-    private ArrayList<ModelMateri> list = new ArrayList<>();
+    private List<Material> list = new ArrayList<Material>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,8 @@ public class Home extends AppCompatActivity {
         setSupportActionBar(toolbar);
         rvMateri = findViewById(R.id.rv_materi);
         rvMateri.setHasFixedSize(true);
-        list.addAll(DataMateri.getListData());
+        sharedPreferenceHelper = new SharedPreferenceHelper(getApplicationContext());
+        //list.addAll(DataMateri.getListData());
         showRecyclerList();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -61,6 +66,7 @@ public class Home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
 
     }
 
@@ -77,25 +83,60 @@ public class Home extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    @Override
+    protected void onDestroy() {
+        if(mDisposable != null && !mDisposable.isDisposed()) mDisposable.dispose();
+        super.onDestroy();
+    }
+
     private void showRecyclerList(){
+        Log.i("Home Activity", "Show Recycler List");
+        mDisposable = mDataManager.getMaterial("Bearer "+sharedPreferenceHelper.getToken())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(
+                        new Consumer<List<MaterialResponse>>() {
+                            @Override
+                            public void accept(List<MaterialResponse> materialResponses) throws Exception {
+                                for(int i = 0;i < materialResponses.size();i++){
+                                    Material material = new Material(materialResponses.get(i).getMat_id(),
+                                            materialResponses.get(i).getTitle(),
+                                            materialResponses.get(i).getMaterial(),
+                                            materialResponses.get(i).getLink(),
+                                            materialResponses.get(i).getCorrection());
+                                    list.add(material);
+                                }
+                                setMaterialAdapter(list);
+                                Log.i("Home Activity : ", "DATA RECEIVED");
+                            }
+                        },
+                        new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                                Log.e("Home Activity : ", throwable.getMessage().toString());
+                            }
+                        }
+                );
+    }
+
+    private void setMaterialAdapter(List<Material> list){
         rvMateri.setLayoutManager(new LinearLayoutManager(this));
         MateriAdapter materiAdapter = new MateriAdapter(list);
         rvMateri.setAdapter(materiAdapter);
 
         materiAdapter.setOnItemClickCallback(new MateriAdapter.OnItemClickCallback() {
             @Override
-            public void onItemClicked(ModelMateri modelMateri) {
+            public void onItemClicked(Material modelMateri) {
                 showSelectedMateri(modelMateri);
             }
         });
-
-
     }
-    private void showSelectedMateri(ModelMateri modelMateri){
+
+    private void showSelectedMateri(Material modelMateri){
         Intent intent = new Intent(Home.this, Materi.class);
+        intent.putExtra("material", modelMateri);
         startActivity(intent);
-
-
     }
 
 }

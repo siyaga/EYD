@@ -8,19 +8,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.eyd.Model.ModelMateri;
+import com.example.eyd.Model.Material;
 import com.example.eyd.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class MateriAdapter extends RecyclerView.Adapter<MateriAdapter.ListViewHolder> {
-    private ArrayList<ModelMateri> listMateri;
+    private List<Material> listMateri;
     private OnItemClickCallback onItemClickCallback;
 
     public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback;
     }
-    public MateriAdapter(ArrayList<ModelMateri> list){
+    public MateriAdapter(List<Material> list){
         this.listMateri = list;
     }
 
@@ -35,8 +35,8 @@ public class MateriAdapter extends RecyclerView.Adapter<MateriAdapter.ListViewHo
 
     @Override
     public void onBindViewHolder(@NonNull final ListViewHolder holder, int position) {
-        ModelMateri modelMateri = listMateri.get(position);
-        holder.TvMateri.setText(modelMateri.getMateri());
+        Material modelMateri = listMateri.get(position);
+        holder.TvMateri.setText(modelMateri.getTitle());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +59,6 @@ public class MateriAdapter extends RecyclerView.Adapter<MateriAdapter.ListViewHo
         }
     }
     public interface OnItemClickCallback {
-        void onItemClicked(ModelMateri modelMateri);
+        void onItemClicked(Material modelMateri);
     }
 }

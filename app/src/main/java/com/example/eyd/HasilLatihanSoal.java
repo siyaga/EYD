@@ -45,7 +45,7 @@ public class HasilLatihanSoal extends AppCompatActivity {
         });
 
 
-        list.addAll(DataSoal.getListData());
+        //list.addAll(DataSoal.getListData());
         showRecyclerList();
     }
 

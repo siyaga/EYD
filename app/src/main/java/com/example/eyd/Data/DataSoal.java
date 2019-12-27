@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class DataSoal {
 
-        private static String[] Soal={
+        /*private static String[] Soal={
                 "1. Manakah Tulisan EYD Yang Benar ?",
                 "2. Manakah Tulisan EYD Yang Benar ?",
                 "3. Manakah Tulisan EYD Yang Benar ?",
@@ -54,7 +54,7 @@ public class DataSoal {
                 list.add(modelSoal);
             }
             return list;
-        }
+        }*/
 
 
 }

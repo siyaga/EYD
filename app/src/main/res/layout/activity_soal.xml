@@ -57,7 +57,7 @@
             android:layout_gravity="left"
             android:textSize="20dp"
             android:textColor="@android:color/black"
-            android:text="1/50"
+            android:text="0/0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <ImageView
@@ -78,21 +78,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+
         <TextView
             android:id="@+id/tv_soal_ujian"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="60dp"
-            android:textSize="20dp"
-            android:layout_gravity="center"
-            android:text="Manakah Tulisan EYD Yang Benar ?"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <RelativeLayout
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Question"
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/btn_jawaban_1"
@@ -100,22 +100,30 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="18dp"
-            android:text="Resiko"
+            android:text="Answer A"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_soal_ujian"
+            />
         <Button
             android:id="@+id/btn_jawaban_2"
             android:background="@drawable/btn"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="18dp"
-            android:text="Risiko"
+            android:text="Answer B"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_jawaban_1"/>
+
+
+        </RelativeLayout>
 
         <Button
             android:visibility="invisible"
