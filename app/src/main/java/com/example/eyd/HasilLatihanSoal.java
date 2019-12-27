@@ -13,13 +13,16 @@ import android.widget.ImageView;
 import com.example.eyd.Adapter.SoalAdapter;
 import com.example.eyd.Data.DataSoal;
 import com.example.eyd.Model.ModelSoal;
+import com.example.eyd.Model.request.ResultBody;
 
 import java.util.ArrayList;
 
 public class HasilLatihanSoal extends AppCompatActivity {
     ImageView Kembali;
     private RecyclerView rvSoal;
-    private ArrayList<ModelSoal> list = new ArrayList<>();
+    private ArrayList<ModelSoal> list;
+    private ArrayList<ResultBody> listResult;
+    private Bundle listBundle;
     Button btn_kembali;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,9 @@ public class HasilLatihanSoal extends AppCompatActivity {
         btn_kembali = findViewById(R.id.btn_kembali_materi);
         rvSoal = findViewById(R.id.rv_soal);
         rvSoal.setHasFixedSize(true);
-
+        listBundle = getIntent().getExtras();
+        list = listBundle.getParcelableArrayList("listSoal");
+        listResult = listBundle.getParcelableArrayList("listResult");
         Kembali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,13 +50,12 @@ public class HasilLatihanSoal extends AppCompatActivity {
         });
 
 
-        //list.addAll(DataSoal.getListData());
         showRecyclerList();
     }
 
     private void showRecyclerList(){
         rvSoal.setLayoutManager(new LinearLayoutManager(this));
-        SoalAdapter soalAdapter = new SoalAdapter(list);
+        SoalAdapter soalAdapter = new SoalAdapter(list, listResult);
         rvSoal.setAdapter(soalAdapter);
 
         soalAdapter.setOnItemClickCallback(new SoalAdapter.OnItemClickCallback() {
@@ -64,6 +68,5 @@ public class HasilLatihanSoal extends AppCompatActivity {
 
     }
     private void showSelectedMateri(ModelSoal modelSoal){
-
     }
 }

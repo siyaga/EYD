@@ -4,9 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class ResultBody implements Parcelable {
-    private Integer userId;
-    private Boolean result;
-    private Integer questionId;
+    Integer userId;
+    Boolean result;
+    Integer questionId;
 
     //parcelable section
 
@@ -23,10 +23,11 @@ public class ResultBody implements Parcelable {
 
     public ResultBody(Parcel in){
         userId = in.readInt();
-        if(in.readInt() == -1){
+        byte byteIn = in.readByte();
+        if(byteIn == 2){
             result = null;
         }else{
-            result = (in.readInt() == 1) ? true : false;
+            result = (byteIn == 1) ? true : false;
         }
         questionId = in.readInt();
     }
@@ -40,9 +41,9 @@ public class ResultBody implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(userId);
         if(result == null){
-            parcel.writeInt(-1);
+            parcel.writeByte((byte)2);
         }else{
-            parcel.writeInt((int) (result ? 1 : 0));
+            parcel.writeByte((byte)(result ? 1 : 0));
         }
         parcel.writeInt(questionId);
     }
@@ -54,5 +55,9 @@ public class ResultBody implements Parcelable {
         this.userId = userId;
         this.result = result;
         this.questionId = questionId;
+    }
+
+    public Boolean getResult() {
+        return result;
     }
 }

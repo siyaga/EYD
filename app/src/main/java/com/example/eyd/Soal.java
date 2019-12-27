@@ -16,20 +16,32 @@ import android.widget.TextView;
 
 import com.example.eyd.Adapter.MateriAdapter;
 import com.example.eyd.Adapter.SoalAdapter;
+import com.example.eyd.Data.DataManager;
 import com.example.eyd.Data.DataMateri;
 import com.example.eyd.Data.DataSoal;
+import com.example.eyd.Data.SharedPreferenceHelper;
 import com.example.eyd.Model.ModelMateri;
 import com.example.eyd.Model.ModelSoal;
 import com.example.eyd.Model.request.ResultBody;
+import com.example.eyd.Model.response.SaveResultResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class Soal extends AppCompatActivity {
     RelativeLayout rlQuestion;
     TextView tvSoalUjian, tvJumlahSoal;
     ImageView Kembali;
     Button Jawab1,Jawab2, lanjut;
+    private SharedPreferenceHelper mSharedPreferenceHelper;
+    private DataManager mDataManager = new DataManager();
+    private Disposable mDisposable;
     private ArrayList<ModelSoal> listSoal;
     private ArrayList<ResultBody> listResult = new ArrayList<ResultBody>();
     private Bundle listSoalBundle;
@@ -39,6 +51,7 @@ public class Soal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soal);
+        mSharedPreferenceHelper = new SharedPreferenceHelper(this.getApplicationContext());
         listSoalBundle = getIntent().getExtras();
         listSoal = listSoalBundle.getParcelableArrayList("listSoal");
         questionNumber = listSoal.size();
@@ -77,9 +90,8 @@ public class Soal extends AppCompatActivity {
         lanjut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(counter == listSoal.size()){
-                    Intent intent = new Intent(Soal.this, HasilLatihanSoal.class);
-                    startActivity(intent);
+                if(counter+1 == listSoal.size()){
+                    sendResult(listSoal, listResult);
                 }else{
                     counter++;
                     callQuestion(counter);
@@ -98,7 +110,7 @@ public class Soal extends AppCompatActivity {
     private void callQuestion(int position){
         tvSoalUjian.setText(listSoal.get(position).getSoal());
         Jawab1.setText(listSoal.get(position).getJawaban1());
-        Jawab2.setText(listSoal.get(counter).getJawaban2());
+        Jawab2.setText(listSoal.get(position).getJawaban2());
     }
 
     private void showAnswer(boolean answer, boolean optionClicked){
@@ -119,6 +131,36 @@ public class Soal extends AppCompatActivity {
     }
 
     private void saveAnswer(boolean answer){
-        ResultBody resultBody = new ResultBody()
+        ResultBody resultBody = new ResultBody(mSharedPreferenceHelper.getUserId(), answer, listSoal.get(counter).getQuestionId());
+        listResult.add(resultBody);
+    }
+
+    private void sendResult(final ArrayList<ModelSoal> listSoal, final ArrayList<ResultBody> listResult){
+        mDisposable = mDataManager.saveResult("Bearer "+mSharedPreferenceHelper.getToken(), listResult)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                            new Consumer<SaveResultResponse>() {
+                                @Override
+                                public void accept(SaveResultResponse s) throws Exception {
+                                    if (s.getStatus().equals("Success")) {
+                                        Intent intent = new Intent(Soal.this, HasilLatihanSoal.class);
+                                        Bundle listSoalBundleSoal = new Bundle();
+                                        listSoalBundleSoal.putParcelableArrayList("listSoal", listSoal);
+                                        intent.putExtras(listSoalBundleSoal);
+                                        Bundle listResultBundleSoal = new Bundle();
+                                        listResultBundleSoal.putParcelableArrayList("listResult", listResult);
+                                        intent.putExtras(listResultBundleSoal);
+                                        startActivity(intent);
+                                    }
+                                }
+                            },
+                            new Consumer<Throwable>() {
+                                @Override
+                                public void accept(Throwable throwable) throws Exception {
+                                    Log.e("Soal Activity : ", throwable.toString());
+                                }
+                            }
+                    );
     }
 }

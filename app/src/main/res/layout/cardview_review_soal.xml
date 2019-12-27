@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/iv_indicator"
                 android:src="#40AB0505"
                 android:layout_width="30dp"
                 android:layout_height="match_parent"/>

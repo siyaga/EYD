@@ -15,7 +15,7 @@
     <color name="textUngu">#9013FE</color>
 
 
-    <color name="SoalSalah"></color>
-    <color name="soalBenar"></color>
+    <color name="soalSalah">#40AB0505</color>
+    <color name="soalBenar">#4023B907</color>
 
 </resources>

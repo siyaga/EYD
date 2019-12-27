@@ -7,6 +7,7 @@ import com.example.eyd.Model.response.LoginResponse;
 import com.example.eyd.Model.response.MaterialResponse;
 import com.example.eyd.Model.response.QuestionResponse;
 import com.example.eyd.Model.response.RegisterResponse;
+import com.example.eyd.Model.response.SaveResultResponse;
 import com.example.eyd.service.EydService;
 import com.example.eyd.service.factory.EydServiceFactory;
 
@@ -36,7 +37,7 @@ public class DataManager {
         return eydService.getMaterials(tokenBearer);
     }
 
-    public Observable<String> saveResult(List<ResultBody> listResult){
-        return eydService.saveResult(listResult);
+    public Observable<SaveResultResponse> saveResult(String tokenBearer, List<ResultBody> listResult){
+        return eydService.saveResult(tokenBearer, listResult);
     }
 }

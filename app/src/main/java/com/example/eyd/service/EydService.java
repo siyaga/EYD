@@ -7,6 +7,7 @@ import com.example.eyd.Model.response.LoginResponse;
 import com.example.eyd.Model.response.MaterialResponse;
 import com.example.eyd.Model.response.QuestionResponse;
 import com.example.eyd.Model.response.RegisterResponse;
+import com.example.eyd.Model.response.SaveResultResponse;
 
 import java.util.List;
 
@@ -36,5 +37,5 @@ public interface EydService {
     Observable<List<MaterialResponse>> getMaterials(@Header("Authorization") String tokenBearer);
 
     @POST("/authenticated/saveResult")
-    Observable<String> saveResult(@Body List<ResultBody> listResult);
+    Observable<SaveResultResponse> saveResult(@Header("Authorization") String tokenBearer, @Body List<ResultBody> listResult);
 }
