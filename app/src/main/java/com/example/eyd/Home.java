@@ -35,13 +35,13 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class Home extends AppCompatActivity {
-    private final DataManager mDataManager = new DataManager();
+    /*private final DataManager mDataManager = new DataManager();
     private SharedPreferenceHelper sharedPreferenceHelper;
-    private Disposable mDisposable;
+    private Disposable mDisposable;*/
     private AppBarConfiguration mAppBarConfiguration;
-    private RecyclerView rvMateri;
-    private ImageView Navbar;
-    private List<Material> list = new ArrayList<Material>();
+    //private RecyclerView rvMateri;
+    //private ImageView Navbar;
+    //private List<Material> list = new ArrayList<Material>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +49,16 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        rvMateri = findViewById(R.id.rv_materi);
-        rvMateri.setHasFixedSize(true);
+        /*rvMateri = findViewById(R.id.rv_materi);
         sharedPreferenceHelper = new SharedPreferenceHelper(getApplicationContext());
-        //list.addAll(DataMateri.getListData());
-        showRecyclerList();
+        showRecyclerList();*/
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery)
+                R.id.nav_home, R.id.nav_profil, R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -86,11 +84,11 @@ public class Home extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        if(mDisposable != null && !mDisposable.isDisposed()) mDisposable.dispose();
+        //if(mDisposable != null && !mDisposable.isDisposed()) mDisposable.dispose();
         super.onDestroy();
     }
 
-    private void showRecyclerList(){
+    /*private void showRecyclerList(){
         Log.i("Home Activity", "Show Recycler List");
         mDisposable = mDataManager.getMaterial("Bearer "+sharedPreferenceHelper.getToken())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -137,6 +135,6 @@ public class Home extends AppCompatActivity {
         Intent intent = new Intent(Home.this, Materi.class);
         intent.putExtra("material", modelMateri);
         startActivity(intent);
-    }
+    }*/
 
 }

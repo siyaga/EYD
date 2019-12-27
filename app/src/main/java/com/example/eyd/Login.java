@@ -85,7 +85,9 @@ public class Login extends AppCompatActivity {
                     public LoginResponse apply(LoginResponse loginResponse) throws Exception {
                         sharedPreferenceHelper.setUserId(loginResponse.getUserId());
                         sharedPreferenceHelper.setUsername(loginResponse.getUsername());
+                        sharedPreferenceHelper.setName(loginResponse.getName());
                         sharedPreferenceHelper.setEmail(loginResponse.getEmail());
+                        sharedPreferenceHelper.setEducation(loginResponse.getEducation());
                         sharedPreferenceHelper.setToken(loginResponse.getToken());
 
                         return loginResponse;

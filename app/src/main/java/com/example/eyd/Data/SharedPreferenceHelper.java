@@ -6,8 +6,10 @@ import android.content.SharedPreferences;
 public class SharedPreferenceHelper {
     private final String PREF_NAME = "EYD_PREF";
     private final String USER_ID = "USER_ID";
+    private final String NAME = "NAME";
     private final String TOKEN = "TOKEN";
     private final String EMAIL = "EMAIL";
+    private final String EDUCATION = "EDUCATION";
     private final String USERNAME = "USERNAME";
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
@@ -47,5 +49,21 @@ public class SharedPreferenceHelper {
 
     public void setUsername(String username){
         editor.putString(USERNAME, username).apply();
+    }
+
+    public String getName(){
+        return sharedPref.getString(NAME, null);
+    }
+
+    public void setName(String name){
+        editor.putString(NAME, name).apply();
+    }
+
+    public String getEducation(){
+        return sharedPref.getString(EDUCATION, null);
+    }
+
+    public void setEducation(String education){
+        editor.putString(EDUCATION, education).apply();
     }
 }
