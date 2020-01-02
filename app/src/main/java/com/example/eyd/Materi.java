@@ -19,25 +19,57 @@ import android.widget.VideoView;
 import com.example.eyd.Adapter.MateriAdapter;
 import com.example.eyd.Data.DataMateri;
 import com.example.eyd.Model.ModelMateri;
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
 
 import java.util.ArrayList;
 
-public class Materi extends AppCompatActivity {
-    private static final String VIDEO_URL = "https://cdn.medcom.id/videos/2017/09/11/757085/6W3UigJbDM.mp4";
+public class Materi extends YouTubeBaseActivity {
+   /*
+    private static final String VIDEO_URL = "https://www10.zippyshare.com/d/6kuqqD8d/45854/Presiden%20Jokowi%20Menghimbau%20Warga%20di%20Papua%20Untuk%20Tenang%20dan%20Tidak%20Merusak%20Fasilitas%20Umum%20NET24.mp4";
 
-    ProgressDialog pDialog;
     VideoView videoView;
     MediaController mediaController;
     Uri video;
+    */
 
+    private static final String TAG ="Materi";
+    YouTubePlayerView mYouTubePlayerView;
+    YouTubePlayer.OnInitializedListener mOnInitializedListener;
+    ProgressDialog pDialog;
     ImageView Kembali;
     Button btnSoal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_materi);
+        Log.d(TAG, "onCreate: Starting.");
         Kembali = findViewById(R.id.iv_kembali);
         btnSoal = findViewById(R.id.btn_soal);
+        mYouTubePlayerView = findViewById(R.id.youtubePlay);
+
+        mOnInitializedListener = new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                Log.d(TAG,"onClick: Done initializing.");
+
+                youTubePlayer.loadVideo("0Kvs6NT0A3U");
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+                Log.d(TAG,"onClick: Failed to initializing.");
+            }
+        };
+        mYouTubePlayerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"onClick: Intializing to initializing.");
+                mYouTubePlayerView.initialize(YoutubeConfig.getApiKey(), mOnInitializedListener);
+            }
+        });
 
         Kembali.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,11 +86,18 @@ public class Materi extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+
+        /*
         videoView = (VideoView) findViewById(R.id.VV_materi);
 
-        videoStream();
+
+         */
 
     }
+    /*
     private void videoStream() {
         // membuat progressbar
         pDialog = new ProgressDialog(this);
@@ -88,4 +127,6 @@ public class Materi extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+     */
 }
